@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "vercel dev"
+    "start": "node --watch server.js"
   },
   "dependencies": {
     "@prisma/client": "^5.19.1",
