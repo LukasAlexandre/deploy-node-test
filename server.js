@@ -18,6 +18,7 @@ const app = express()
 app.use(express.json())
 
 
+// doiwe
 // rota get - listar
 app.get('/usuarios', async (req, res) => {
     const users = await prisma.user.findMany()
