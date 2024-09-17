@@ -7,6 +7,10 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 const app = express()
 
+const connectDB = require('./path/to/connectDB');
+require('dotenv').config();
+connectDB();
+
 // declarar usuabilidades
 app.use(express.json())
 
