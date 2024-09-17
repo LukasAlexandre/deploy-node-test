@@ -1,15 +1,18 @@
 // importar bibliotecas
 import express from 'express'
 import { PrismaClient } from '@prisma/client'
+import connectDB from './connectMongo.js';
+import dotenv from 'dotenv'
 
+// Functions
+connectDB();
+dotenv.config();
 
 // declarar variáveis
 const prisma = new PrismaClient()
 const app = express()
 
-const connectDB = require('./path/to/connectDB');
-require('dotenv').config();
-connectDB();
+
 
 // declarar usuabilidades
 app.use(express.json())
@@ -60,4 +63,8 @@ app.delete('/usuarios/:id', async (req, res) => {
     })
     res.status(200).json({message: 'usuário deletado com sucesso'})
 })
-app.listen(3000)
+
+const PORT = process.env.PORT || 8080
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+})
